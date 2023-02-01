@@ -5,6 +5,7 @@ import Layout from "./Components/Layout";
 import Login from "./Pages/Login";
 import HomePage from "./Pages/HomePage";
 import UserProfile from "./Pages/UserProfile";
+import Post from "./Pages/Post";
 
 const MainLayout = () => (
   <Layout>
@@ -27,6 +28,10 @@ export const routes = [
       {
         element: <UserProfile />,
         path: "/profile",
+      },
+      {
+        element: <Post />,
+        path: "/post",
       },
     //   {
     //     path: "/404",

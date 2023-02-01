@@ -8,7 +8,7 @@ function NavBar() {
     <div className="navbar">
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <Navbar.Brand >Thrifty</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="http://127.0.0.1:3000/home">Home</Nav.Link>
             <Nav.Link href="http://127.0.0.1:3000/login">Login</Nav.Link>

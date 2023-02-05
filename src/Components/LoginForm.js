@@ -11,18 +11,19 @@ function LoginForm() {
 
   const kDefaultFormState = {
     username: "",
-    password: ""
+    password: "",
   }
 
   const [state, setState] = useState(kDefaultFormState)
-  
-  function handleUsernameChange (event) {
-    setState({ username: event.target.value });
-  }
 
-  function handlePasswordChange (event) {
-    setState({ password: event.target.value });
-  }
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setState({
+      ...state,
+      [name]: value,
+    });
+};
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -31,7 +32,7 @@ function LoginForm() {
   }
 
   function apiCall (){
-    axios.post(`${kBaseUrl}/login/`,{'username': state.username, 'password': state.password})
+    axios.post(`${kBaseUrl}/login/`,{username: state.username, password: state.password})
       .then((response) => {
         console.log('The data we get back from the HTTP response:', response.data);
       })
@@ -41,52 +42,8 @@ function LoginForm() {
       });
     }
 
-  // function apiCall (){
-  //   fetch(`${kBaseUrl}/login/`)
-  //     .then((response) => {
-  //       console.log('The data we get back from the HTTP response:', response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log('Anything that isn\'t status code 2XX is an error:', error.response.status);
-  //       console.log('The data from response with an error:', error.response.data);
-  //     });
-  //   }
-
-  // function apiCall (){
-  //   axios({
-  //     method: "POST",
-  //     url: "http://127.0.0.1:8000/login/",
-  //     data:{
-  //       username: state.username,
-  //       password: state.password,
-  //     }
-  //   });
-// }
-
-// function apiCall (){
-//   try { const res = await axios.get("http://127.0.0.1:8000/login/", { data: { product: this.product } }) } 
-//   catch (error) { console.log(error) }
-// }
-
 
   return (
-    // <div>
-    //   <Form onSubmit={handleSubmit}>
-    //     <Form.Group className="mb-3" controlId="formBasicEmail">
-    //       <Form.Label>Username</Form.Label>
-    //       <Form.Control type="username" placeholder="Username" onChange={handleUsernameChange} />
-    //     </Form.Group>
-
-    //     <Form.Group className="mb-3" controlId="formBasicPassword">
-    //       <Form.Label>Password</Form.Label>
-    //       <Form.Control type="password" placeholder="Password" onChange={handlePasswordChange} />
-    //     </Form.Group>
-    //     <Button variant="primary" type="submit" onClick={apiCall}>
-    //       Log in
-    //     </Button>
-    //   </Form>
-    //   <p>{ state.username } {state.password}</p>
-    // </div>
     <div class="form-bg">
     <div class="container">
         <div class="row">
@@ -97,11 +54,11 @@ function LoginForm() {
                     <form class="form-horizontal clearfix" onSubmit={handleSubmit}>
                         <div class="form-group">
                             <span class="input-icon"><i class="fa fa-user"></i></span>
-                            <input type="text" class="form-control" placeholder="Username" onChange={handleUsernameChange}></input>
+                            <input type="text" class="form-control" placeholder="Username" onChange={handleInputChange} value= {state.username} name="username"></input>
                         </div>
                         <div class="form-group">
                             <span class="input-icon"><i class="fa fa-lock"></i></span>
-                            <input type="password" class="form-control" placeholder="Password" onChange={handlePasswordChange}></input>
+                            <input type="password" class="form-control" placeholder="Password" onChange={handleInputChange} value= {state.password} name="password"></input>
                         </div>
                         <button type="button" class="btn btn-default" onClick={apiCall}><i class="fa fa-arrow-right"></i>Login</button>
                     </form>

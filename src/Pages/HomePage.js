@@ -23,20 +23,44 @@ function HomePage() {
           });
       }, []);
 
-    return (
+    // return (
+    //     <div>
+    //         <h2>Hello from the homepage!</h2>
+    //         {state.map((post) => {
+    //             return (
+    //                 <div className='wrapper'>
+    //                     <p>{post.user.username}</p>
+    //                     <p> {post.title}</p>
+    //                     <p>{post.description}</p>
+    //                 </div>
+                    
+    //             );
+    //         })}
+    //     </div>
+    // );
+    return(
         <div>
-            <h2>Hello from the homepage!</h2>
-            {state.map((post) => {
-                return (
-                    <div className='wrapper'>
-                        <p>{post.user.username}</p>
-                        <p> {post.title}</p>
-                        <p>{post.description}</p>
-                    </div>
-                );
-            })}
-        </div>
-    );
+             {state.map((post) => {
+    return(
 
+<div class="container mx-auto mt-4">
+  <div class="row">
+       <div class="col-md-4">
+            <div class="card" >
+  {/* <img src="https://i.imgur.com/ZTkt4I5.jpg" class="card-img-top" alt="..."> */}
+                <div class="card-body">
+                <h5 class="card-title">{post.title}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{post.date_created}</h6>
+                <p class="card-text">{post.description}</p>
+                <a class="btn  mr-2"><i class="fas fa-link"></i>Unclaimed</a>
+                </div>
+            </div>
+        </div>  
+  </div>
+</div>
+    );
+            })}   
+    </div>
+    );
 }
 export default HomePage;

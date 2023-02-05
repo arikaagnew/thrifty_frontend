@@ -9,10 +9,11 @@
 
 .form-container{
     font-family: 'Poppins', sans-serif;
-    /* background: repeating-linear-gradient(-45deg,#111, #111 4px, #2a2314 4px, #2a2314 8px); */
-    background: #2a2314;
     padding: 40px 25px;
-    /* border-top: 6px solid #17c0eb; */
+    background: #222;
+    border: 2px solid #dd2476;
+    color: rgba(250, 250, 250, 0.8);
+    margin-bottom: 2rem;
     }
     .form-container .title{
     color: #fff;
@@ -38,7 +39,7 @@
     }
     .form-container .create-account a:hover{ color: #17c0eb; }
     .form-container .form-horizontal .form-group{
-    background-color: #17c0eb;
+    background-color:  #dd2476;
     font-size: 0;
     padding: 10px;
     margin: 0 0 25px;
@@ -70,8 +71,8 @@
     font-size: 16px;
     }
     .form-container .form-horizontal .btn{
-    color: #615F5F;
-    background: #fff;
+    color: black;
+    background:  #dd2476;
     font-size: 20px;
     line-height: 20px;
     width: 140px;
@@ -80,11 +81,6 @@
     border: none;
     display: inline-block;
     transition: all 0.3s ease 0s;
-    }
-    .form-container .form-horizontal .btn:hover,
-    .form-container .form-horizontal .btn:focus{
-    background: #17c0eb;
-    outline: none;
     }
     .form-container .form-horizontal .btn i{ font-size: 16px; }
     .form-container .form-horizontal .forgot{
@@ -99,9 +95,29 @@
     color: #fff;
     transition: all 0.3s ease 0s;
     }
-    .form-container .form-horizontal .forgot a:hover{ color: #17c0eb; }
+    .form-container .form-horizontal .forgot a:hover{ color:  #dd2476 }
 
     .description{
     color: #fff;  
     }
     
+
+    :root {
+        --gradient: linear-gradient(to left top, #DD2476 10%, #FF512F 90%);
+      }
+      
+      .card {
+        background: #222;
+        border: 1px solid #dd2476;
+        color: rgba(250, 250, 250, 0.8);
+        margin-bottom: 2rem;
+      }
+      
+      .btn {
+        border: 5px solid;
+        border-image-slice: 1;
+        background: var(--gradient);
+        border-image-source:  var(--gradient); 
+        text-decoration: none;
+        transition: all .4s ease;
+      }

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Courgette&display=swap');
+
 .navbar {
     text-align: center;
     background-color: #2a2314;
@@ -7,6 +9,7 @@
     border: 2px solid #dd2476;
 }
 
-.navbar:visited {
-    text-decoration: none;
+.brand {
+    font-family: 'Courgette';
+    font-size: 35px;
 }

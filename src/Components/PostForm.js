@@ -6,6 +6,22 @@ function PostForm() {
 
 const kBaseUrl = process.env.REACT_APP_BACKEND_URL;
 
+const getItemFromLocalStorage = (keyName) => {
+  try {
+    const value = window.localStorage.getItem(keyName);
+
+    if (value) {
+      return JSON.parse(value);
+    }
+
+    return null;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const items = getItemFromLocalStorage('items')
+
   const current = new Date();
   const date = current.getDate()
 
@@ -14,7 +30,7 @@ const kBaseUrl = process.env.REACT_APP_BACKEND_URL;
     description: "",
     date_created: date,
     is_claimed: false,
-    user: ""
+    user: items.id
   }
 
   const [state, setState] = useState(kDefaultFormState)
@@ -36,7 +52,7 @@ const kBaseUrl = process.env.REACT_APP_BACKEND_URL;
 
 
   function apiCall (){
-    axios.post(`${kBaseUrl}users/<int:id>/posts/`,
+    axios.post(`${kBaseUrl}/users/${state.user}/posts/`,
     {title: state.title, 
     description: state.description,
     date_created: state.date_created,
@@ -54,25 +70,25 @@ const kBaseUrl = process.env.REACT_APP_BACKEND_URL;
 
 
     return (
-    <div class="form-bg">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3">
-                <div class="form-container">
-                    <div class="form-icon"><i class="fa fa-user"></i></div>
-                    <h3 class="title">Post</h3>
-                    <form class="form-horizontal clearfix" onSubmit={handleSubmit}>
-                        <p class="description">Title:</p>
-                        <div class="form-group">
-                            <span class="input-icon"><i class="fa fa-user"></i></span>
-                            <input type="text" class="form-control" onChange={handleInputChange} value={state.title} name="title"></input>
+    <div className="form-bg">
+    <div className="container">
+        <div className="row">
+            <div className="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3">
+                <div className="form-container">
+                    <div className="form-icon"><i className="fa fa-user"></i></div>
+                    <h3 className="title">Post</h3>
+                    <form className="form-horizontal clearfix" onSubmit={handleSubmit}>
+                        <p className="description">Title:</p>
+                        <div className="form-group">
+                            <span className="input-icon"><i className="fa fa-user"></i></span>
+                            <input type="text" className="form-control" onChange={handleInputChange} value={state.title} name="title"></input>
                         </div>
-                        <p class="description">Description:</p>
-                        <div class="form-group">
-                            <span class="input-icon"><i class="fa fa-lock"></i></span>
-                            <input type="text" class="form-control" onChange={handleInputChange} value={state.description} name="description"></input>
+                        <p className="description">Description:</p>
+                        <div className="form-group">
+                            <span className="input-icon"><i className="fa fa-lock"></i></span>
+                            <input type="text" className="form-control" onChange={handleInputChange} value={state.description} name="description"></input>
                         </div>
-                        <button type="button" class="btn btn-default" onClick={apiCall}><i class="fa fa-arrow-right"></i>Post</button>
+                        <button type="button" className="btn btn-default" onClick={apiCall}><i className="fa fa-arrow-right"></i>Post</button>
                     </form>
                     <p>{ state.title } {state.description}</p>
                 </div>

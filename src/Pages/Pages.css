@@ -79,7 +79,7 @@
     padding: 14px 25px;
     border-radius: 10px;
     border: none;
-    display: inline-block;
+    display: inline;
     transition: all 0.3s ease 0s;
     }
     .form-container .form-horizontal .btn i{ font-size: 16px; }
@@ -100,7 +100,6 @@
     .description{
     color: #fff;  
     }
-    
 
     :root {
         --gradient: linear-gradient(to left top, #DD2476 10%, #FF512F 90%);
@@ -115,14 +114,21 @@
       
       .btn {
         border: 5px solid;
-        border-image-slice: 1;
         background: var(--gradient);
         border-image-source:  var(--gradient); 
         text-decoration: none;
         transition: all .4s ease;
+        margin: 0 2px;
+        padding: 1;
       }
 
 .profile-name{
   text-align: center;
   color: black;
+}
+
+
+.post-container{
+  display: grid;
+  grid-template-columns: auto auto auto;
 }

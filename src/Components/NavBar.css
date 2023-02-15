@@ -13,3 +13,18 @@
     font-family: 'Courgette';
     font-size: 35px;
 }
+
+.link {
+text-decoration: none;
+margin: 0 2px;
+padding: 0;
+}
+
+.link:visited{
+    color: gray;
+}
+
+/* mouse over link */
+.link:hover {
+    color: red;
+  }

@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Button } from 'react-bootstrap';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link} from "react-router-dom";
 
 
 function NavBar() {
@@ -43,10 +43,10 @@ const items = getItemFromLocalStorage('items')
         <Container>
           <Navbar.Brand className='brand' >Thrifty</Navbar.Brand>
           <Nav className="meauto">
-            <Nav.Link href="http://127.0.0.1:3000/home">Home</Nav.Link>
-            {!items && <Nav.Link href="http://127.0.0.1:3000/login">Login</Nav.Link>}
-            {items && <Nav.Link href="http://127.0.0.1:3000/post">Post</Nav.Link>}
-            {items && <Nav.Link href="http://127.0.0.1:3000/profile">Profile</Nav.Link>}
+            <Link className="link" to="/home">Home</Link>
+            {!items && <Link  className="link" to="/login">Login</Link>}
+            {items && <Link  className="link" to="/post">Post</Link>}
+            {items && <Link  className="link" to="/profile">Profile</Link>}
           </Nav>
           {items && <Button onClick={handleClick}>Logout</Button>}
         </Container>

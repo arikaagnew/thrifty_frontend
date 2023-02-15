@@ -14,7 +14,6 @@ function HomePage() {
           .then((response) => {
             console.log('The data we get back from the HTTP response:', response.data);
             setState(response.data);
-            console.log('State', state)
           })
           .catch((error) => {
             console.log('Anything that isn\'t status code 2XX is an error:', error.response.status);
@@ -22,36 +21,24 @@ function HomePage() {
           });
       }, []);
 
-    // return (
-    //     <div>
-    //         <h2>Hello from the homepage!</h2>
-    //         {state.map((post) => {
-    //             return (
-    //                 <div className='wrapper'>
-    //                     <p>{post.user.username}</p>
-    //                     <p> {post.title}</p>
-    //                     <p>{post.description}</p>
-    //                 </div>
-                    
-    //             );
-    //         })}
-    //     </div>
-    // );
+
     return(
-        <div>
+        <div className='post-container'>
              {state.map((post) => {
+                const isClaimedChange = post.is_claimed ? 'Claimed' : 'Unclaimed';
     return(
 
 <div className="container mx-auto mt-4">
   <div className="row">
-       <div className="col-md-4">
+       <div className="">
             <div className="card" >
-  {/* <img src="https://i.imgur.com/ZTkt4I5.jpg" class="card-img-top" alt="..."> */}
                 <div className="card-body">
+                <h5 className="card-title">{post.username}</h5>
                 <h5 className="card-title">{post.title}</h5>
                 <h6 className="card-subtitle mb-2 text-muted">{post.date_created}</h6>
+                <img src={post.image} alt="Clothing" height={200} width={200}></img>
                 <p className="card-text">{post.description}</p>
-                <a className="btn  mr-2"><i className="fas fa-link"></i>Unclaimed</a>
+                <button className="btn  mr-2"><i className="fas fa-link"></i>{isClaimedChange}</button>
                 </div>
             </div>
         </div>  

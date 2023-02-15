@@ -6,6 +6,7 @@ import Login from "./Pages/Login";
 import HomePage from "./Pages/HomePage";
 import UserProfile from "./Pages/UserProfile";
 import Post from "./Pages/Post";
+import Register from "./Pages/Register";
 
 const MainLayout = () => (
   <Layout>
@@ -32,6 +33,10 @@ export const routes = [
       {
         element: <Post />,
         path: "/post",
+      },
+      {
+        element: <Register />,
+        path: "/register",
       },
     //   {
     //     path: "/404",

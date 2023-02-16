@@ -1,6 +1,6 @@
 # Thrifty Web App Frontend
 
-This is the frontend of the web app, Thrifty. Thrifty is a web aoo that allows users to post clothing items 
+This is the frontend of the web app, Thrifty. Thrifty is a web app that allows users to post clothing items 
 they no longer wear for sale. Users can post items, view items other users have posted, claim items, and 
 view items they have posted on their profile. This web app was created as a Capstone project for Ada Developer Academy.
 
